@@ -28,11 +28,19 @@ Using the table of survey results below answer questions 1a, 1b, 1c, and 1d. Ple
 
 What is the probability of voting for the incumbent? (1 point)
 
+::: callout-note
+1/1
+:::
+
 P (voting for the incumbent)= Total votes for incumbent/total votes: 550/1165= 47.2%
 
 ### Part B
 
 What is the probability of being 18-29 or voting for the incumbent? Write the general (i.e. using symbols) formula you used to obtain your answer and show all of your work. (2 points)
+
+::: callout-note
+2/2
+:::
 
 $P(A ∪ B)$ = $P(A)$ + $P(B)$ - $P(A ∩ B)$
 
@@ -46,6 +54,10 @@ $P(A ∪ B)$ = $P(A)$ + $P(B)$ - $P(A ∩ B)$
 
 In terms of the substantive results (ignore statistical significance), does the evidence support your hypothesis? Explain, using details, how you know (no more than 2 sentences). (5 points)
 
+::: callout-note
+5/5
+:::
+
 P (being 30-65 voting for the incumbent): 150 / 395 = 38.0%
 
 P (being older than 65 voting for the incumbent): 150 / 310 = 48.4%
@@ -57,6 +69,10 @@ No, the evidence does not support the hypothesis as the probability of voting fo
 ### Part D
 
 Imagine that the values in the **Total** column for each age group in *Table 1* remained the same, but the percentage voting for the incumbent in each age group was 51% (i.e. 51% of each age group voted for the incumbent). Now imagine that you were going to construct 90% confidence intervals, using the z table, for the percentage voting for the incumbent for each age group (don’t actually do this). List the age groups in order starting with the one that would have the widest confidence interval to the one that would have the narrowest confidence interval, noting any ties. (3 points)
+
+::: callout-note
+3/3
+:::
 
 $\text{CI Width} = p ± Z \times \sqrt{\frac{p(1-p)}{n}}$
 
@@ -72,11 +88,21 @@ Groups from the widest confidence interval to the narrowest confidence interval:
 
 Provide a political science example of a nominal variable. (1 point)
 
+::: callout-note
+1/1
+:::
+
 The candidate's political party affiliation (the Democrats or Republican) is an example of a nominal variable in political science.
 
 ## Question 3
 
 What is the OLS estimate of $Y = \beta_0 + \epsilon$? (That is, in terms of $Y$, what does the OLS estimate of $\beta_0$ equal?) (2 points)
+
+::: callout-note
+0/2
+
+$\beta_0$ is the sample mean.
+:::
 
 In the equation $Y = \beta_0 + \epsilon$ , the term $\beta_0$ represents the intercept of the linear model. In OLS regression, the OLS estimate of $\beta_0$ is denoted as $\hat{\beta}_0$ . The OLS estimate of $\hat{\beta}_0$ is the predicted value of $Y$ when all independent variable are set to 0. Therefore, the OLS estimate in terms of $Y$ is: $\hat{Y}$ = $\hat{\beta}_0$.
 
@@ -106,11 +132,21 @@ $N = 1,200$ from a random sample of 18 and older Canadians.
 
 Calculate the t-statistic for `Education`. (1 point)
 
+::: callout-note
+1/1
+:::
+
 t (Education) = -2/0.2 = -10
 
 ### Part B
 
 Interpret the results for the `Education` variable, i.e. BRIEFLY discuss the substantive meaning of the results (1 sentence), substantive significance (no more than 2 sentences), and statistical significance (1 sentence). (5 points)
+
+::: callout-note
+2/5
+
+Your substantive significance is missing. Also, the dependent variable is feelings towards George W. Bush, not freedom.
+:::
 
 Substantive significance: 1. For each additional year of education, there is a decrease of 2 units in the willingness to support freedom compared to the reference. 2. The coefficient for education is statistically significant as the p-value is 0.0000.
 
@@ -118,11 +154,21 @@ Substantive significance: 1. For each additional year of education, there is a d
 
 In this context, is the coefficient on the constant term useful on its own? Why or why not (1 sentence) (5 points)
 
+::: callout-note
+3/5
+
+Correct: it represents the baseline level of the dependent variable when all independent variables are 0. However, two variables (age and ideology) cannot take on values of zero.
+:::
+
 Yes, the coefficient of the constant term is useful as it represents the baseline level of the dependent variable when all independent variables are 0, and it is statistically significant with a p-value of 0.0126.
 
 ### Part D
 
 Is the coefficient on `U.S. TV access` statistically significant at the 5% error level? (1 point)
+
+::: callout-note
+1/1
+:::
 
 Yes, the coefficient of U.S. TV Access is statistically significant at the 5% level, as the p-value is only 0.0126 (\< 0.05).
 
@@ -130,10 +176,20 @@ Yes, the coefficient of U.S. TV Access is statistically significant at the 5% le
 
 Is the coefficient on `U.S. TV access` statistically significant at the 1% error level? (1 point)
 
+::: callout-note
+1/1
+:::
+
 No, the coefficient of U.S. TV Access is not statistically significant at the 1% level, as the p-value (0.0126) is greater than 1% significance level.
 
 ### Part F
 
 Based on the results in *Table 2*, might the negative coefficient on `U.S. TV Access` be the result of more educated people being more likely to have access to U.S. TV? In no more than 1 sentence, explain your answer. (3 points)
+
+::: callout-note
+0/3
+
+We cannot use this model to learn whether individuals with higher education are more likely to oppose watching American television.
+:::
 
 Yes, we can use the negative coefficient to interpret that individuals with higher education are more likely to oppose watching American television.
