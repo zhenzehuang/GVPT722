@@ -1,0 +1,224 @@
+---
+title: "Problem set 2"
+author: "Zhenze Huang"
+format: 
+  html:
+    self-contained: true
+editor: visual
+execute: 
+  warning: false
+  message: false
+---
+
+## Question 1
+
+Imagine you hypothesize that the probability of voting for the incumbent in a two-candidate race increases as age increases. Using the table of survey results below answer questions 1a, 1b, 1c, and 1d. Please show all of your work.
+
+| Age           | Challenger | Incumbent | TOTAL |
+|---------------|------------|-----------|-------|
+| 18 to 29      | 210        | 250       | 460   |
+| 30 to 65      | 245        | 150       | 395   |
+| Older than 65 | 160        | 150       | 310   |
+| **TOTAL**     | 615        | 550       | 1165  |
+
+: Table 1: Voting for the Incumbent and Challenger by Age (cell counts)
+
+### Part A
+
+What is the probability of voting for the incumbent? (1 point)
+
+P (voting for the incumbent)= Total votes for incumbent/total votes: 550/1165= 47.2%
+
+### Part B
+
+What is the probability of being older than 65 **or** voting for the incumbent? Write the general (i.e. using symbols) formula you used to obtain your answer and show all of your work. (2 points)
+
+$P(A ∪ B)$ = $P(A)$ + $P(B)$ - $P(A ∩ B)$
+
+= P (older than 65) + P (voting for incumbent) - P (older than 65 and voting for incumbent)
+
+=（310/1165）+（550/1165）-（150/1165）
+
+= 60.9%
+
+### Part C
+
+In terms of the substantive results (ignore statistical significance), does the evidence support your hypothesis? Explain, using details, how you know and consider whether, in terms of direction, the results fully support the hypothesis, partially support it, or do not support it at all (no more than 2 sentences). (5 points)
+
+P (being 18 to 29 voting for the incumbent): 250 / 460 = 54.3%
+
+P (being 30 to 65 voting for the incumbent): 150 / 395 = 38.0%
+
+P (being older than 65 voting for the incumbent): 150 / 310= 48.4%
+
+$\because$ P (being 18 to 29 voting for the incumbent) \> P (being older than 65 voting for the incumbent) \> P (being 30 to 65 voting for the incumbent)
+
+$\therefore$ No, the evidence does not support the hypothesis as the probability of voting for the incumbent in the age between 18 and 29 is the highest compared with the other two groups whose ages are older, which does not support the hypothesis.
+
+### Part D
+
+Imagine that the values in the **Total** column for each age group in Table 1 remained the same, but the percentage voting for the incumbent in each age group was 38% (i.e. 38% of each age group voted for the incumbent). Now imagine that you were going to construct 90% confidence intervals, using the z table, for the percentage voting for the incumbent for each age group (don’t actually do this).  List the age groups in order starting with the one that would have the widest confidence interval to the one that would have the narrowest confidence interval, noting any ties. (3 points)
+
+$\text{CI Width} = p ± Z \times \sqrt{\frac{p(1-p)}{n}}$
+
+CI Width(18-29)= $0.38 ± 1.645 \times \sqrt{\frac{0.38(1-0.38)}{460}}$ $≈$ （0.343，0.417）
+
+CI Width(30-65)= $0.38 ± 1.645 \times \sqrt{\frac{0.38(1-0.38)}{395}}$ $≈$ （0.340，0.420）
+
+CI Width(65 and older)= $0.38 ± 1.645 \times \sqrt{\frac{0.38(1-0.38)}{310}}$ $≈$ （0.335，0.425）
+
+Groups from the widest confidence interval to the narrowest confidence interval: voters (65 and older), voters (30-65), voters (18-29).
+
+## Question 2
+
+Provide a political science example of an ordered variable that is not listed on the slides. (1 point)
+
+A legislator's attitude towards a draft bill that introduced to the chamber (strongly supportive, somewhat supportive, somewhat opposed, strongly opposed).
+
+## Question 3
+
+Provide a political science example of a continuous variable that is not listed on the slides. (1 point)
+
+The legislator's ages.
+
+## Question 4
+
+Answer the questions below based on the following information and table.
+
+N = 1,200 from a random sample of Canadians who are 18 years or older.
+
+**Dependent variable:** Feeling Thermometer Rating of George W. Bush (0 to 100: 0 = very cold, 100 = very warm).
+
+**Independent variables:** Have access to U.S. TV stations (1=yes, 0 = no), age in years (18-100).
+
+| Independent variables | Coefficient | SE  | p-value |
+|-----------------------|-------------|-----|---------|
+| Constant              | 55          | 18  | 0.0023  |
+| U.S. TV Access        | -15         | 3   | 0.0000  |
+
+: Table 2: Hypothetical Bivariate Regression Results Predicting George W. Bush Thermometer Ratings
+
+### Part A
+
+Interpret the results for the `U.S. TV Access` variable by **BRIEFLY** discussing the substantive meaning of the results (1 sentence) and statistical significance (1 sentence). (4 points)
+
+1\) Substantive meaning of the results: the coefficient for the U.S. TV Access variable (-15) shows that on average, the Feeling Thermometer Rating of G.W. Bush, the Canadian people who have the U.S. TV Access is 15 points lower than Canadian who do not have access to U.S. TV access.
+
+2\) Statistical significance: the p-value of 0.0000 shows that the relationship between the U.S. TV Access and the Feeling Thermometer Rating of G.W. Bush is statistically significant, which means that the observed association is unlikely to have occurred by chance, providing confidence in the reliability of the results.
+
+### Part B
+
+In this context, is the coefficient on the constant term useful on its own? Why or why not (1 sentence)? (5 points)
+
+Yes, the coefficient of the constant term is useful because it represents Canadian people who do not have access to TV, which is feasible.
+
+### Part C
+
+From the information provided, can you determine the mean thermometer rating for George W. Bush for 18 and older Canadians with U.S. TV Access and for those without U.S. TV Access? If you can determine those values, what are they, respectively? (3 points)
+
+Yes, we can determine them by the following steps.
+
+According to the given linear regression model formula:
+
+$Y = \beta_0 + \beta_1X_1 + \epsilon$
+
+We know that:
+
+$Y$ represents the Feeling Thermometer Rating of George W. Bush.
+
+$X_1$ represents whether individuals have access to U.S. TV stations.
+
+$\beta_0$ is the intercept, representing the expected value of ( Y ) when all independent variables are 0.
+
+$\beta_1$ is the coefficient of $X_1$, indicating the impact of a unit change in $X_1$ on $Y$.
+
+$\epsilon$ is the error term, representing the unexplained random factors of the model.
+
+Using the provided coefficients and intercept, we can compute the average thermometer rating for two groups:
+
+For Canadians aged 18 and older with access to U.S. TV stations:
+
+$Y_{\text{access}} = \beta_0 + \beta_1$
+
+$Y{\text{access}} = 55 - 15$
+
+$Y{\text{access}} = 40$
+
+For Canadians aged 18 and older without access to U.S. TV stations:
+
+$Y_{\text{no access}} = \beta_0$
+
+$Y_{\text{no access}} = 55$
+
+Therefore, the estimated average thermometer ratings are:
+
+-   For Canadians aged 18 and older with access to U.S. TV stations: approximately 40.
+-   For Canadians aged 18 and older without access to U.S. TV stations: approximately 55.
+
+### Part D
+
+Based on the results in Table 2, might the negative coefficient on `U.S. TV Access` be the result of younger people being more likely to have access to U.S. TV? In no more than 1 sentence, explain your answer. (3 points)
+
+No, since this is a bivariate model, we cannot solely use this model to conclude that whether individuals with the younger age are more likely to have access to U.S. TV.
+
+## Question 5
+
+Use the same background information as in Q4, but now imagine you got the results in Table 3.
+
+| Independent variables | Coefficient | SE  | p-value |
+|-----------------------|-------------|-----|---------|
+| Constant              | 55          | 23  | 0.0300  |
+| U.S. TV Access        | -7          | 4   | 0.0804  |
+| Age                   | 2           | 1.5 | 0.1827  |
+
+: Table 3: Hypothetical Multiple Regression Results Predicting George W. Bush Thermometer Ratings
+
+### Part A
+
+Interpret the results for the `U.S. TV Access` variable by **BRIEFLY** discussing the substantive meaning of the results (1 sentence) and statistical significance (1 sentence). (4 points)
+
+Substantive meaning of the results: On average, the Canadian people who have U.S. TV Access are 7 points lower than those who do not have U.S. TV Access in terms of the Feeling Thermometer Rating of G.W. Bush.
+
+Statistical significance: This is not statistically significant as the p-value is 0.0804 (\>0.05), which cannot suggest with sufficient confidence that the relationship between U.S. TV Access and the Canadian people's perception of G.W. Bush is statistically significant.
+
+### Part B
+
+In this context, is the coefficient on the constant term useful on its own? Why or why not (1 sentence)? (5 points)
+
+No, the coefficient on the constant term is not useful on its own in this context, as it represents the average Feeling Thermometer Rating of G.W. Bush by Canadian people who have 0 year of age (which is impossible) and who do not have the U.S. TV Access (which is possible).
+
+## Question 6
+
+Identify a published article in an area that interests you that uses quantitative techniques to test some hypothesis (any method is fine).
+
+### Part A
+
+Provide the full citation of the article (hint: you can use one of the ready-made options on Google Scholar). (1 point)
+
+Kastner, S. L., Wang, G., Pearson, M. M., Phillips-Alvarez, L., & Yinusa, J. (2022). Taiwan and the “One-China Principle” in the Age of COVID-19: Assessing the Determinants and Limits of Chinese Influence. *The China Quarterly*, *252*, 1045–1065.
+
+### Part B
+
+State the hypothesis of interest (if there are several, just pick one) and the method used to evaluate it (e.g., crosstab, OLS, probit etc.). (2 points, if you list more than one hypothesis additional points will be taken off)
+
+H3: Countries that are more economically developed are more likely to express support for Taiwan. 
+
+Method: ordered logit analysis
+
+### Part C
+
+Report the **substantive** result in no more than two sentences (i.e., the interpretation of the main coefficient, or the effect value/size, do not mention statistical significance). (3 points)
+
+In Model 1, which uses the full sample covering all 193 UN members, the coefficient for the independent variable "Log PCI" (a country's per capita income) is 0.389. This indicates that for every 1-unit increase in a country's economic development, the average level of support for Taiwan increases by 0.389 units. This finding suggests a tendency for economically developed countries to be more supportive of Taiwan.
+
+### Part D
+
+Does the article provide any discussion of substantive significance? **To ensure that no points are deducted a good faith effort is needed. That is, as long as there is evidence of an answer that shows engagement with this (including discussion with another member of the class) you won’t lose points. Engagement plus successful answers can gain up to 5 points.**
+
+**If yes**, provide a quote of what they say and then - in no more than two sentences - evaluate the logic the author(s) used. Note that it is most likely that you will NOT find an article that actually does this and if they do so, they likely do so poorly – i.e. they most likely just assert something but do not provide the logic; in those cases you should say they do not do well. Leave this section blank if they do not discuss substantive significance and answer under the “If no” section. Run your answer by at least one other person from class and adjust as needed. List the person(s) you spoke to.
+
+**If no**, state whether you think the result is substantively significant or not and in no more than two sentences explain why. Do not assume because it is published that the result is substantively significant. Run your answer by at least one other person from class and adjust as needed. If the author(s) discuss substantive significance leave this section blank and answer under the “If yes” section. List the person(s) you spoke to.
+
+The authors fail to discuss the substantive significance in the article, which merely mentions a significant correlation between a country's economic development and its position on the Taiwan issue, without providing any empirical evidence demonstrating this statement, let along the statistical or substantive significance.
+
+(This answer is based on the discussion with Taib and Badradin.)
