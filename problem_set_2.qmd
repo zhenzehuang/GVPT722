@@ -27,11 +27,19 @@ Imagine you hypothesize that the probability of voting for the incumbent in a tw
 
 What is the probability of voting for the incumbent? (1 point)
 
+::: callout-note
+1/1
+:::
+
 P (voting for the incumbent)= Total votes for incumbent/total votes: 550/1165= 47.2%
 
 ### Part B
 
 What is the probability of being older than 65 **or** voting for the incumbent? Write the general (i.e. using symbols) formula you used to obtain your answer and show all of your work. (2 points)
+
+::: callout-note
+2/2
+:::
 
 $P(A ∪ B)$ = $P(A)$ + $P(B)$ - $P(A ∩ B)$
 
@@ -44,6 +52,10 @@ $P(A ∪ B)$ = $P(A)$ + $P(B)$ - $P(A ∩ B)$
 ### Part C
 
 In terms of the substantive results (ignore statistical significance), does the evidence support your hypothesis? Explain, using details, how you know and consider whether, in terms of direction, the results fully support the hypothesis, partially support it, or do not support it at all (no more than 2 sentences). (5 points)
+
+::: callout-note
+5/5
+:::
 
 P (being 18 to 29 voting for the incumbent): 250 / 460 = 54.3%
 
@@ -59,6 +71,10 @@ $\therefore$ No, the evidence does not support the hypothesis as the probability
 
 Imagine that the values in the **Total** column for each age group in Table 1 remained the same, but the percentage voting for the incumbent in each age group was 38% (i.e. 38% of each age group voted for the incumbent). Now imagine that you were going to construct 90% confidence intervals, using the z table, for the percentage voting for the incumbent for each age group (don’t actually do this).  List the age groups in order starting with the one that would have the widest confidence interval to the one that would have the narrowest confidence interval, noting any ties. (3 points)
 
+::: callout-note
+3/3
+:::
+
 $\text{CI Width} = p ± Z \times \sqrt{\frac{p(1-p)}{n}}$
 
 CI Width(18-29)= $0.38 ± 1.645 \times \sqrt{\frac{0.38(1-0.38)}{460}}$ $≈$ （0.343，0.417）
@@ -73,11 +89,19 @@ Groups from the widest confidence interval to the narrowest confidence interval:
 
 Provide a political science example of an ordered variable that is not listed on the slides. (1 point)
 
+::: callout-note
+1/1
+:::
+
 A legislator's attitude towards a draft bill that introduced to the chamber (strongly supportive, somewhat supportive, somewhat opposed, strongly opposed).
 
 ## Question 3
 
 Provide a political science example of a continuous variable that is not listed on the slides. (1 point)
+
+::: callout-note
+1/1
+:::
 
 The legislator's ages.
 
@@ -102,6 +126,10 @@ N = 1,200 from a random sample of Canadians who are 18 years or older.
 
 Interpret the results for the `U.S. TV Access` variable by **BRIEFLY** discussing the substantive meaning of the results (1 sentence) and statistical significance (1 sentence). (4 points)
 
+::: callout-note
+4/4
+:::
+
 1\) Substantive meaning of the results: the coefficient for the U.S. TV Access variable (-15) shows that on average, the Feeling Thermometer Rating of G.W. Bush, the Canadian people who have the U.S. TV Access is 15 points lower than Canadian who do not have access to U.S. TV access.
 
 2\) Statistical significance: the p-value of 0.0000 shows that the relationship between the U.S. TV Access and the Feeling Thermometer Rating of G.W. Bush is statistically significant, which means that the observed association is unlikely to have occurred by chance, providing confidence in the reliability of the results.
@@ -110,11 +138,19 @@ Interpret the results for the `U.S. TV Access` variable by **BRIEFLY** discussin
 
 In this context, is the coefficient on the constant term useful on its own? Why or why not (1 sentence)? (5 points)
 
+::: callout-note
+5/5
+:::
+
 Yes, the coefficient of the constant term is useful because it represents Canadian people who do not have access to TV, which is feasible.
 
 ### Part C
 
 From the information provided, can you determine the mean thermometer rating for George W. Bush for 18 and older Canadians with U.S. TV Access and for those without U.S. TV Access? If you can determine those values, what are they, respectively? (3 points)
+
+::: callout-note
+3/3
+:::
 
 Yes, we can determine them by the following steps.
 
@@ -159,7 +195,15 @@ Therefore, the estimated average thermometer ratings are:
 
 Based on the results in Table 2, might the negative coefficient on `U.S. TV Access` be the result of younger people being more likely to have access to U.S. TV? In no more than 1 sentence, explain your answer. (3 points)
 
+::: callout-note
+2/3
+:::
+
 No, since this is a bivariate model, we cannot solely use this model to conclude that whether individuals with the younger age are more likely to have access to U.S. TV.
+
+::: callout-note
+Is it plausible that a individual's age influences their support for GWB? In other words, do you think you should include age in your model?
+:::
 
 ## Question 5
 
@@ -177,13 +221,25 @@ Use the same background information as in Q4, but now imagine you got the result
 
 Interpret the results for the `U.S. TV Access` variable by **BRIEFLY** discussing the substantive meaning of the results (1 sentence) and statistical significance (1 sentence). (4 points)
 
+::: callout-note
+3/4
+:::
+
 Substantive meaning of the results: On average, the Canadian people who have U.S. TV Access are 7 points lower than those who do not have U.S. TV Access in terms of the Feeling Thermometer Rating of G.W. Bush.
+
+::: callout-note
+... holding age constant.
+:::
 
 Statistical significance: This is not statistically significant as the p-value is 0.0804 (\>0.05), which cannot suggest with sufficient confidence that the relationship between U.S. TV Access and the Canadian people's perception of G.W. Bush is statistically significant.
 
 ### Part B
 
 In this context, is the coefficient on the constant term useful on its own? Why or why not (1 sentence)? (5 points)
+
+::: callout-note
+5/5
+:::
 
 No, the coefficient on the constant term is not useful on its own in this context, as it represents the average Feeling Thermometer Rating of G.W. Bush by Canadian people who have 0 year of age (which is impossible) and who do not have the U.S. TV Access (which is possible).
 
@@ -195,11 +251,19 @@ Identify a published article in an area that interests you that uses quantitativ
 
 Provide the full citation of the article (hint: you can use one of the ready-made options on Google Scholar). (1 point)
 
+::: callout-note
+1/1
+:::
+
 Kastner, S. L., Wang, G., Pearson, M. M., Phillips-Alvarez, L., & Yinusa, J. (2022). Taiwan and the “One-China Principle” in the Age of COVID-19: Assessing the Determinants and Limits of Chinese Influence. *The China Quarterly*, *252*, 1045–1065.
 
 ### Part B
 
 State the hypothesis of interest (if there are several, just pick one) and the method used to evaluate it (e.g., crosstab, OLS, probit etc.). (2 points, if you list more than one hypothesis additional points will be taken off)
+
+::: callout-note
+2/2
+:::
 
 H3: Countries that are more economically developed are more likely to express support for Taiwan. 
 
@@ -209,11 +273,19 @@ Method: ordered logit analysis
 
 Report the **substantive** result in no more than two sentences (i.e., the interpretation of the main coefficient, or the effect value/size, do not mention statistical significance). (3 points)
 
+::: callout-note
+3/3
+:::
+
 In Model 1, which uses the full sample covering all 193 UN members, the coefficient for the independent variable "Log PCI" (a country's per capita income) is 0.389. This indicates that for every 1-unit increase in a country's economic development, the average level of support for Taiwan increases by 0.389 units. This finding suggests a tendency for economically developed countries to be more supportive of Taiwan.
 
 ### Part D
 
 Does the article provide any discussion of substantive significance? **To ensure that no points are deducted a good faith effort is needed. That is, as long as there is evidence of an answer that shows engagement with this (including discussion with another member of the class) you won’t lose points. Engagement plus successful answers can gain up to 5 points.**
+
+::: callout-note
+2/5
+:::
 
 **If yes**, provide a quote of what they say and then - in no more than two sentences - evaluate the logic the author(s) used. Note that it is most likely that you will NOT find an article that actually does this and if they do so, they likely do so poorly – i.e. they most likely just assert something but do not provide the logic; in those cases you should say they do not do well. Leave this section blank if they do not discuss substantive significance and answer under the “If no” section. Run your answer by at least one other person from class and adjust as needed. List the person(s) you spoke to.
 
@@ -222,3 +294,7 @@ Does the article provide any discussion of substantive significance? **To ensure
 The authors fail to discuss the substantive significance in the article, which merely mentions a significant correlation between a country's economic development and its position on the Taiwan issue, without providing any empirical evidence demonstrating this statement, let along the statistical or substantive significance.
 
 (This answer is based on the discussion with Taib and Badradin.)
+
+::: callout-note
+Do you think the result is substantively significant? In no more than two sentences explain why.
+:::
