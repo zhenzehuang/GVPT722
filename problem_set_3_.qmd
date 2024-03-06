@@ -1,0 +1,160 @@
+---
+title: "Problem set 3"
+author: "Zhenze Huang"
+format: 
+  html:
+    self-contained: true
+editor: visual
+execute: 
+  warning: false
+  message: false
+---
+
+In this assignment you will use U.S. Census data from the Current Population Survey Voter Supplement Files from 1972-2000 (excluding 1976) aggregated to the state level.  The data file is on the course ELMS site and is named `aggcpsgvpt722.dta`. Please create a script file that shows your work and answer the questions below using the following information. Include the script file with your responses. Unless otherwise noted, you do not need to include tables or graphs of the results.
+
+*Your script needs to run without errors. Please make sure to render it and look at the output before submitting it.*
+
+**Dependent Variable**
+
+-   `vote`: defined as the turnout rate in a state in a given year (i.e. number who voted divided by the number eligible to vote).
+
+**Independent Variables**
+
+-   `south`: a dummy variable equal to 1 for states from the confederacy and 0 otherwise.
+
+-   `pcthsg`: percentage of the population in a state that graduated high school (i.e. % that graduated high school only, as well as those who have more education).
+
+*Be sure to look at the distributions of each of the variables. (On your own, but we should see that you did this in your code).*
+
+## Question 1
+
+Using descriptive statistics only, what is the mean turnout rate in southern states? (1 point)
+
+```{r}
+library(ggplot2)
+library(tidyverse)
+
+# Load the data with the full path including the file name
+data <- haven::read_dta("/Users/zhenzehuang/Desktop/Advanced Quantitative Methods For Political Science/GVPT722/aggcpsgvpt722.dta")
+
+# Subset the data for southern states
+s <- subset(data, south == 1)
+
+# Calculate the mean turnout rate in southern states
+mean_south <- mean(s$vote, na.rm = TRUE)
+
+# Print the mean turnout rate in southern states
+print(mean_south)
+```
+
+The mean turnout rate in southern states is 61.1.
+
+## Question 2
+
+Using descriptive statistics only, what is the mean turnout rate in non-southern states? (1 point)
+
+```{r}
+# Subset the data for non-southern states
+non_south <- subset(data, south == 0)
+
+# Calculate the mean turnout rate in non-southern states
+mean_turnout_non_south <- mean(non_south$vote, na.rm = TRUE)
+
+# Print the mean turnout rate in non-southern states
+print(mean_turnout_non_south)
+```
+
+The mean turnout rate in non-southern states is 68.2.
+
+## Question 3
+
+Is the difference in mean turnout in southern vs. non-southern states **substantively significant**? That is, is the difference consequential to politics? Explain. Please confine your answer to no more than 2 sentences. (4 points)
+
+Yes, the difference in mean turnout between southern and non-southern states is substantively significant, as if the 7 points difference is driven by factors like percentage of high school or college graduation, it is possible that the policy-makers will place more emphasis on education thus shaping voter turnout.
+
+## Question 4
+
+Using a difference of means test, is the difference statistically significant at $p<0.05$? (1 point)
+
+```{r}
+# Subset the data for southern and non-southern states
+south <- subset(data, south == 1)
+non_south <- subset(data, south == 0)
+
+# Perform a t-test
+t_test_result <- t.test(south$vote, non_south$vote)
+
+# Print the result
+print(t_test_result)
+```
+
+Yes, the difference is statistically significant because the p-value is 2.2e-16(\<0.05).
+
+## Question 5
+
+Run a regression with `vote` as the dependent variable and `south` as the independent variable. Is it meaningful to interpret the constant term on its own? If so, what information does it provide? Answer in one sentence. (2 points)
+
+```{r}
+# Run the regression
+model <- lm(vote ~ south, data = data)
+
+# Print the summary of the regression
+summary(model)
+```
+
+No, the constant is meaningful to interpret the constant term on its own, because it is plausible that the states are not from the confederacy, while it is not plausible that the population in the south states is zero.
+
+## Question 6
+
+Using the regression you just ran, in no more than one sentence interpret the **substantive meaning** of the coefficient on the `south` variable. (2 points)
+
+```{r}
+# Run the regression
+model <- lm(vote ~ south, data = data)
+
+# Print the summary of the regression
+summary(model)
+
+```
+
+Substantive meaning: On average, the turnout rate in a state in a given year from the south state is 7.11 points lower than the turnout rate in a state in a given year from the non-south state, holding pcthsg constant.
+
+## Question 7
+
+True or False. The results from the questions above indicate that the difference of means approach and the regression allow one to draw an identical set of conclusions? (1 point)
+
+True. The different means of approaches and regression will generate the same result.
+
+## Question 8
+
+Run a regression with `vote` as the dependent variable and `south` and `pcthsg` as the independent variables. [Report the results in a professionally formatted table.]{.underline} Is it meaningful to interpret the constant term on its own? If so, what information does it provide? Answer in one sentence. (2 points)
+
+```{r}
+library(modelsummary)
+model <- lm(vote ~ south + pcthsg, data = data)
+modelsummary(model, 
+             statistic = c("std.error", "p.value"), 
+             gof_map = "nobs")
+```
+
+No, the constant is not meaningful to interpret the constant term on its own, as it is not plausible that the states with zero population and it is not plausible that states with zero high school graduate.
+
+## Question 9
+
+Compared to the regression you ran in *Question 5*, what happened to the coefficient on the `south` variable and why? Answer in no more than 2 sentences. (2 points)
+
+*Hint: take a look at the relationship between `south` and `pcthsg` (consider whether the `pcthsg` differs in the `south` vs. the `non-south`).*
+
+```{r}
+ggplot(data, aes(x = south, y = pcthsg)) +
+  geom_point()+
+  theme_minimal()
+```
+
+In the second model, the coefficient on the South decreases by 1.11 percentage points (from 7.113 to 6.003) with the inclusion of pcthsg. This suggests that a portion of the relationship between being in the South and voter turnout is attributable to the variance in the percentage of the population with high school completion between the South and non-South states.
+
+## Question 10
+
+Reflecting on all of the analyses you have run, is south, in the regression from *Question 5* exogenous? Why or why not? Answer in no more than one sentence. (1 point)
+
+South is an endogenous variable because some of its effect in Model 1 is explained when we include pcthsg in Model 2, suggesting that south may also be correlated with other potential factors.
