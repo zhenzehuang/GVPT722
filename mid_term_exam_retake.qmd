@@ -1,0 +1,144 @@
+---
+title: "Mid-Term Exam"
+subtitle: "Retake"
+author: "Zhenze Huang"
+format: 
+  html:
+    self-contained: true
+execute: 
+  message: false
+  warning: false
+editor: visual
+---
+
+## Question 1
+
+Imagine you hypothesize that the probability of supporting a law to lower the voting age to 16 is lower for people age 30 and older. Using the table of survey results below answer questions 1a, 1b, and 1c. Please show all of your work.
+
+| Age          | Oppose | Support | TOTAL |
+|--------------|--------|---------|-------|
+| 18-29        | 100    | 200     | 300   |
+| 30 and older | 400    | 300     | 700   |
+| TOTAL        | 500    | 500     | 1000  |
+
+: **Probability of Supporting a Law to Lower the Voting Age to 16 by Age (cell counts)**
+
+### Part A
+
+What is the probability of supporting the law? (1 point)
+
+P (supporting the law): 500/1000=50%
+
+### Part B
+
+What is the probability of being 18-29 **or** supporting the law? Write the general (i.e. using symbols) formula you used to obtain your answer and show all of your work. (2 points)
+
+$P(A ∪ B)$ = $P(A)$ + $P(B)$ - $P(A ∩ B)$
+
+= P (18-29) + P (supporting the law) - p (18-29 and supporting the law)
+
+= (300/1000) + (500/1000) - (200/1000)
+
+= 60 %
+
+### Part C
+
+In terms of the substantive results (ignore statistical significance), does the evidence support your hypothesis? Explain, using details, how you know (no more than 2 sentences). (5 points)
+
+P (18-29 supporting the law): 200/1000=20%
+
+P (30 and older): 700/1000 = 70%
+
+P (18-29 and supporting the law) \< P (30 and older supporting the law)
+
+No, the evidence does not support the hypothesis as the probability of people who are 18-29 supporting the law is lower than people who are 30 and older.
+
+## Question 2
+
+A recent poll of 500 likely Republican voters includes 300 “highly educated” respondents and 200 “poorly educated” respondents. Both groups supported Donald Trump at the same rate. If you were to construct confidence intervals around these estimates, would the confidence interval be larger around the highly educated or poorly educated? Why? Answer in [no more than one sentence]{.underline}. (2 points)
+
+The confidence interval would be larger around the poorly educated respondents because the poorly educated residents will have the larger CI, because the smaller sample size results in greater uncertainty in the estimate of their support for Donald Trump.
+
+## Question 3
+
+Provide a political science example of a continuous variable. (1 point)
+
+Legislator's ages
+
+## Question 4
+
+Use the information that follows to respond to the questions that come after Table 2.
+
+The OLS regression results in Table 2 were obtained from a survey of 1,500 citizens age 16 to 90 in European Union member nations.  The p values are from 2 tailed tests of significance.
+
+**Dependent variable**:
+
+-   European Parliament Feeling Thermometer ranging from 0 (coldest) to 100 (warmest).
+
+**Independent variables**:
+
+-   Female: coded as equal to 1 for females and equal to 0 otherwise.
+
+-   Education: coded in years of education completed and ranges from 0 to 23.
+
+| Independent variables | Coefficient | p-value |
+|-----------------------|-------------|---------|
+| Constant              | 35          | 0.000   |
+| Female                | -7          | 0.000   |
+| Education             | 3           | 0.120   |
+
+: **Regression results**
+
+### Part A
+
+In the context described above, is it useful to interpret the coefficient on the constant term on its own? **If it is not useful** to do so explain why it is not. **If it is useful** to do so explain what it reveals. Answer in [no more than 2 sentences]{.underline}. (3 points)
+
+No, it is not useful to interpret the constant term on its own, because while it is possible that the gender equals zero, it is not possible that education variable equals zero.
+
+### Part B
+
+Is the result for education statistically significant at the 5% error level? Answer **YES** or **NO** (1 point)
+
+No (p-value: 0.12 \> 0.05)
+
+### Part C
+
+Will a 95% confidence interval around the coefficient for education include 0? Answer **YES** or **NO** (1 point)
+
+Yes
+
+### Part D
+
+What is the **substantive meaning** of the coefficient on the education variable (i.e. interpret the coefficient estimate)? Answer in [one sentence]{.underline}. (3 points)
+
+Substantive meaning: on average, the citizens who receive one more year in education will increase 3 points in their European Parliament Feeling Thermometer, holding gender constant.
+
+### Part E
+
+Based on the results in Table 2, might the negative coefficient on Female be the result of females having less **income**? In no more than 1 sentence, explain your answer. (3 points)
+
+No, because we do not account for the effect of income.
+
+## Extra credit
+
+A recent study by Dr. Doofenshmirtz found that those who were randomly selected to be exposed to arguments that 16- and 17-year-olds are informed and engaged in local politics increased support for lowering the voting age to 16 by 8 percentage points, from a baseline of support of 45 percentage points in the control condition. On a quantitative methods exam Zuri, Jesse, and Teddy were asked if the effect was substantively significant. The question they were asked did not give any information about statistical significance. The answers they provided follow.
+
+-   Jesse: The effect is not substantively significant because 8 is a small number.
+
+-   Teddy: We just don’t know because there isn’t any information about statistical significance. (wrong)
+
+-   Zuri: The effect is substantively significant because this information boosts support over 50%, so a campaign by young people stressing these points could help the policy pass by getting more than 50% support.
+
+Which of the following provides the [**best**]{.underline} evaluation of the above answers?
+
+A.  Jesse would be marked as correct, and the others as incorrect
+
+B.  Teddy would be marked as correct, and the others as incorrect
+
+C.  Zuri would be marked as correct, and the others as incorrect
+
+D.  Zuri and Jesse would both be marked correct, and Teddy as incorrect
+
+E.  Zuri and Teddy would both be marked correct, and Jesse as incorrect
+
+Answer: D.
