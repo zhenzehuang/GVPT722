@@ -30,12 +30,16 @@ In this assignment you will use U.S. Census data from the Current Population Sur
 
 Using descriptive statistics only, what is the mean turnout rate in southern states? (1 point)
 
+::: callout-note
+1/1
+:::
+
 ```{r}
 library(ggplot2)
 library(tidyverse)
 
 # Load the data with the full path including the file name
-data <- haven::read_dta("/Users/zhenzehuang/Desktop/Advanced Quantitative Methods For Political Science/GVPT722/aggcpsgvpt722.dta_")
+data <- haven::read_dta("aggcpsgvpt722.dta")
 
 # Subset the data for southern states
 s <- subset(data, south == 1)
@@ -52,6 +56,10 @@ The mean turnout rate in southern states is 61.1.
 ## Question 2
 
 Using descriptive statistics only, what is the mean turnout rate in non-southern states? (1 point)
+
+::: callout-note
+1/1
+:::
 
 ```{r}
 # Subset the data for non-southern states
@@ -70,11 +78,25 @@ The mean turnout rate in non-southern states is 68.2.
 
 Is the difference in mean turnout in southern vs. non-southern states **substantively significant**? That is, is the difference consequential to politics? Explain. Please confine your answer to no more than 2 sentences. (4 points)
 
+::: callout-note
+2/4
+:::
+
 Yes, the difference in mean turnout between southern and non-southern states is substantively significant, as if the 7 points difference is driven by factors like percentage of high school or college graduation, it is possible that the policy-makers will place more emphasis on education thus shaping voter turnout.
+
+::: callout-note
+Your answer focuses not on substantive significance, but on whether this mechanism is relevant to policy-makers.
+
+Your answer needed to focus on how a seven point increase in turnout could (or could not) change a relevant political outcome (for example, which candidate won).
+:::
 
 ## Question 4
 
 Using a difference of means test, is the difference statistically significant at $p<0.05$? (1 point)
+
+::: callout-note
+1/1
+:::
 
 ```{r}
 # Subset the data for southern and non-southern states
@@ -94,6 +116,10 @@ Yes, the difference is statistically significant because the p-value is 2.2e-16(
 
 Run a regression with `vote` as the dependent variable and `south` as the independent variable. Is it meaningful to interpret the constant term on its own? If so, what information does it provide? Answer in one sentence. (2 points)
 
+::: callout-note
+0/2
+:::
+
 ```{r}
 # Run the regression
 model <- lm(vote ~ south, data = data)
@@ -104,9 +130,17 @@ summary(model)
 
 No, the constant is meaningful to interpret the constant term on its own, because it is plausible that the states are not from the confederacy, while it is not plausible that the population in the south states is zero.
 
+::: callout-note
+Be careful when reading the definition of these variables. The `south` variable is binary and indicates whether a state is in the South (`1` if yes and `0` if no). Therefore, the constant gives us the predicted average turn-out rate among non-Southern states. This is meaningful.
+:::
+
 ## Question 6
 
 Using the regression you just ran, in no more than one sentence interpret the **substantive meaning** of the coefficient on the `south` variable. (2 points)
+
+::: callout-note
+1/2
+:::
 
 ```{r}
 # Run the regression
@@ -119,15 +153,27 @@ summary(model)
 
 Substantive meaning: On average, the turnout rate in a state in a given year from the south state is 7.11 points lower than the turnout rate in a state in a given year from the non-south state, holding pcthsg constant.
 
+::: callout-note
+There is no `pcthsg` in this regression. You are not; therefore, holding `pcthsg` constant.
+:::
+
 ## Question 7
 
 True or False. The results from the questions above indicate that the difference of means approach and the regression allow one to draw an identical set of conclusions? (1 point)
+
+::: callout-note
+1/1
+:::
 
 True. The different means of approaches and regression will generate the same result.
 
 ## Question 8
 
 Run a regression with `vote` as the dependent variable and `south` and `pcthsg` as the independent variables. [Report the results in a professionally formatted table.]{.underline} Is it meaningful to interpret the constant term on its own? If so, what information does it provide? Answer in one sentence. (2 points)
+
+::: callout-note
+2/2 (error carried forward)
+:::
 
 ```{r}
 library(modelsummary)
@@ -139,9 +185,17 @@ modelsummary(model,
 
 No, the constant is not meaningful to interpret the constant term on its own, as it is not plausible that the states with zero population and it is not plausible that states with zero high school graduate.
 
+::: callout-note
+There is no variable measuring population.
+:::
+
 ## Question 9
 
 Compared to the regression you ran in *Question 5*, what happened to the coefficient on the `south` variable and why? Answer in no more than 2 sentences. (2 points)
+
+::: callout-note
+2/2
+:::
 
 *Hint: take a look at the relationship between `south` and `pcthsg` (consider whether the `pcthsg` differs in the `south` vs. the `non-south`).*
 
@@ -156,5 +210,9 @@ In the second model, the coefficient on the South decreases by 1.11 percentage p
 ## Question 10
 
 Reflecting on all of the analyses you have run, is south, in the regression from *Question 5* exogenous? Why or why not? Answer in no more than one sentence. (1 point)
+
+::: callout-note
+1/1
+:::
 
 South is an endogenous variable because some of its effect in Model 1 is explained when we include pcthsg in Model 2, suggesting that south may also be correlated with other potential factors.
