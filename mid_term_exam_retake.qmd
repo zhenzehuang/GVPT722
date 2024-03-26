@@ -27,11 +27,19 @@ Imagine you hypothesize that the probability of supporting a law to lower the vo
 
 What is the probability of supporting the law? (1 point)
 
+::: callout-note
+1/1
+:::
+
 P (supporting the law): 500/1000=50%
 
 ### Part B
 
 What is the probability of being 18-29 **or** supporting the law? Write the general (i.e. using symbols) formula you used to obtain your answer and show all of your work. (2 points)
+
+::: callout-note
+2/2
+:::
 
 $P(A ∪ B)$ = $P(A)$ + $P(B)$ - $P(A ∩ B)$
 
@@ -45,6 +53,10 @@ $P(A ∪ B)$ = $P(A)$ + $P(B)$ - $P(A ∩ B)$
 
 In terms of the substantive results (ignore statistical significance), does the evidence support your hypothesis? Explain, using details, how you know (no more than 2 sentences). (5 points)
 
+::: callout-note
+2/5
+:::
+
 P (18-29 supporting the law): 200/1000=20%
 
 P (30 and older): 700/1000 = 70%
@@ -53,15 +65,29 @@ P (18-29 and supporting the law) \< P (30 and older supporting the law)
 
 No, the evidence does not support the hypothesis as the probability of people who are 18-29 supporting the law is lower than people who are 30 and older.
 
+::: callout-note
+Needed to identify the probability of support within each group (18-29yos (66%) and 30+yos (43%)). Would find that yes, the evidence does support the hypothesis.
+
+Error (probability of support in each group) carried forward, correctly interpreted the hypothesis and used this evidence to assess it (2 points).
+:::
+
 ## Question 2
 
 A recent poll of 500 likely Republican voters includes 300 “highly educated” respondents and 200 “poorly educated” respondents. Both groups supported Donald Trump at the same rate. If you were to construct confidence intervals around these estimates, would the confidence interval be larger around the highly educated or poorly educated? Why? Answer in [no more than one sentence]{.underline}. (2 points)
+
+::: callout-note
+2/2
+:::
 
 The confidence interval would be larger around the poorly educated respondents because the poorly educated residents will have the larger CI, because the smaller sample size results in greater uncertainty in the estimate of their support for Donald Trump.
 
 ## Question 3
 
 Provide a political science example of a continuous variable. (1 point)
+
+::: callout-note
+1/1
+:::
 
 Legislator's ages
 
@@ -93,11 +119,23 @@ The OLS regression results in Table 2 were obtained from a survey of 1,500 citiz
 
 In the context described above, is it useful to interpret the coefficient on the constant term on its own? **If it is not useful** to do so explain why it is not. **If it is useful** to do so explain what it reveals. Answer in [no more than 2 sentences]{.underline}. (3 points)
 
+::: callout-note
+1/3
+:::
+
 No, it is not useful to interpret the constant term on its own, because while it is possible that the gender equals zero, it is not possible that education variable equals zero.
+
+::: callout-note
+The education variable can equal zero. What would education equal to zero mean substantively?
+:::
 
 ### Part B
 
 Is the result for education statistically significant at the 5% error level? Answer **YES** or **NO** (1 point)
+
+::: callout-note
+1/1
+:::
 
 No (p-value: 0.12 \> 0.05)
 
@@ -105,11 +143,19 @@ No (p-value: 0.12 \> 0.05)
 
 Will a 95% confidence interval around the coefficient for education include 0? Answer **YES** or **NO** (1 point)
 
+::: callout-note
+1/1
+:::
+
 Yes
 
 ### Part D
 
 What is the **substantive meaning** of the coefficient on the education variable (i.e. interpret the coefficient estimate)? Answer in [one sentence]{.underline}. (3 points)
+
+::: callout-note
+3/3
+:::
 
 Substantive meaning: on average, the citizens who receive one more year in education will increase 3 points in their European Parliament Feeling Thermometer, holding gender constant.
 
@@ -117,7 +163,15 @@ Substantive meaning: on average, the citizens who receive one more year in educa
 
 Based on the results in Table 2, might the negative coefficient on Female be the result of females having less **income**? In no more than 1 sentence, explain your answer. (3 points)
 
+::: callout-note
+1/3
+:::
+
 No, because we do not account for the effect of income.
+
+::: callout-note
+We cannot rule out that income has an effect on both Female and Feeling. Does identify correctly that we do not account for the effect of income (1 point).
+:::
 
 ## Extra credit
 
@@ -131,6 +185,10 @@ A recent study by Dr. Doofenshmirtz found that those who were randomly selected 
 
 Which of the following provides the [**best**]{.underline} evaluation of the above answers?
 
+::: callout-note
+0/3
+:::
+
 A.  Jesse would be marked as correct, and the others as incorrect
 
 B.  Teddy would be marked as correct, and the others as incorrect
@@ -142,3 +200,7 @@ D.  Zuri and Jesse would both be marked correct, and Teddy as incorrect
 E.  Zuri and Teddy would both be marked correct, and Jesse as incorrect
 
 Answer: D.
+
+::: callout-note
+C
+:::
