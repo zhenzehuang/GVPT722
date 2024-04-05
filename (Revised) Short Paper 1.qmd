@@ -1,0 +1,178 @@
+---
+title: "Short Paper 1"
+author: "Zhenze Huang"
+editor: visual
+execute:
+      message: false
+      warning: false
+      echo: false
+---
+
+## Hypothesis
+
+Based on the discussions of introduction and theory, this paper proposes three hypotheses shown as follow:
+
+H1: On average, the closer the date of the election, the lower the voter turnout.
+
+H2: The more voters with a high school diploma in the state, the higher the voter turnout in the election.
+
+H3: The voters in states located in the Southern states are less likely to turnout for the election compared to voters in states located in non-Southern states.
+
+Specifically, I assume that there is a negative correlation between the average deadline for voter registration and voter turnout. Specifically, voter turnout is expected to decline as the registration deadline approaches Election Day. In contrast, a positive relationship is expected between the percentage of high school graduates in states and voter turnout. This suggests that higher educational attainment within a state correlates with increased voter participation. Furthermore, it is hypothesized that, on average, states located in the Southern region of the United States will exhibit lower voter turnout compared to their non-Southern counterparts, while controlling for other relevant factors. The mathematical equation shows as follow:
+
+$$Y = \beta_0+\beta_1(close)+\beta_2(pcthsg)+\beta_3(south)+e$$
+
+In the equation, the dependent variable, denoted as $Y$, signifying the voter turnout. $\beta_0$ stands for the intercept, while $\beta_1$ and $\beta_2$ represent two independent variables, respectively. The term $e$ is the error term.
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(modelsummary)
+library(xtable)
+library(sandwich)
+library(stargazer)
+library(kableExtra)
+library(lmtest)
+library(zoo)
+```
+
+```{r}
+# Load the data with the full path including the file name
+data <- haven::read_dta("/Users/zhenzehuang/Desktop/Advanced Quantitative Methods For Political Science/Short Paper 1/aggcpsgvpt722.dta")
+
+```
+
+## Result
+
+### **1. Bivariate analysis:**
+
+Figure 1 illustrates a scatter plot depicting the relationship between the closing date for voter registration and voter turnout. The data presented suggest a negative correlation, indicating that as the registration deadline approaches, voter turnout tends to decline. The scatter plot shown as Figure 2 indicates the positive relationship between the percentage of high school graduates and voter turnout: the more the high school graduates, the higher the voter turnout. Figure 3 suggests that on average, voter turnout in the southern states (mean = 61.07) tends to be relatively lower than in the non-southern states (mean = 68.18).
+
+### **2. Multiple Regression Analysis:**
+
+The results of the OLS model are shown in Table 1. Consistent with Hypothesis 1, which assumed a negative relationship between the registration deadline and voter turnout, our results indicate that, on average, each day closer to the registration deadline is associated with a 0.207 percentage point decrease in voter turnout, holding all other factors constant. This relationship is statistically significant (p $<$ 0.001). However, from a substantive perspective, the observed 0.207 percentage point decrease in turnout may not have a significant impact on the outcome of an election, particularly in the early stages or in the competitive multi-candidate races.
+
+In line with Hypothesis 2, which predicted that a higher percentage of high school graduates would increase voter turnout, our results confirm this theoretical expectation. Specifically, I find that a on average, one percentage point increase in the proportion of high school graduates is associated with a 0.079 percentage point increase in turnout, a relationship that is both statistically (p = 0.0252 $<$ 0.05) and substantively significant. This means that states with a higher proportion of high school graduates may experience higher voter turnout. The results suggest two key points: first, in closely contested elections, even a marginal increase in turnout of 0.079 percentage points could significantly affect the outcome of the election. Second, if turnout is indeed affected by the proportion of high school graduates, then efforts to improve education and increase high school graduation rates could play a key role in increasing voter participation.
+
+Regarding Hypothesis 3, which suggests that voter turnout would be lower in Southern states, our model results reveal both substantive and statistically significant differences. Specifically, after controlling for other factors, an average voter turnout in Southern states is 5.256 percentage points lower than in non-Southern states (p \< 0.001). This indicates that residing in the South is associated with a decreased likelihood of voting. Such regional disparities in voter turnout are of considerable significance for electoral participation.
+
+### **2.3** Footnote Regarding the Robust Standard Errors Check:
+
+This paper employs robust standard errors to address potential heteroscedasticity and enhance the reliability of the model. Compared to Table 1, Table 2 shows a slight increase in standard errors, suggesting Table 2 estimates are more reliable for regression analyses. Notably, variables "Closing date of registration" (close) and Southern-state affiliation (south) are statistically significant at the 0.05 level. Although the percentage of high school diploma holders (pthsg) narrowly misses this threshold, all results are interpreted with uniform statistical significance across variables.
+
+## Conclusion
+
+In summary, this study examines the empirical relationships outlined in three hypotheses regarding voter turnout in U.S. elections. First, I confirm a negative correlation between the proximity of registration deadlines and turnout, consistent with Hypothesis 1. Although statistically significant, the observed decline in turnout may not have a substantial impact in certain electoral contexts. Second, in support of Hypothesis 2, a positive relationship was found between the proportion of high school graduates and voter turnout. This underscores the potential role of education in promoting civic engagement. In addition, our results supported Hypothesis 3, highlighting lower voter turnout in Southern states compared to non-Southern states, indicating regional disparities in voter participation. In addition, the study conducts a robust standard error test to assess the reliability and address heteroscedasticity in the model. The comparison revealed a slight increase in the standard errors in Table 2, leading to the recommendation to use the estimates from this table for regression analyses. Notably, "Closing date of registration" and Southern-state affiliation were statistically significant at the 0.05 level, while high school diploma percentage narrowly missed significance, interpreted with uniform statistical significance across variables.
+
+## Appendix
+
+```{r}
+###Bivariate analysis 1###
+
+###Closing Date for Registration (close) vs. Voter Turnout:
+
+# Calculate correlation
+correlation_close_turnout <- cor(data$close, data$vote)
+
+# Create scatterplot with regression line
+with(data, {
+  plot(close, vote, 
+       xlab = "Closing Date for Registration", 
+       ylab = "Voter Turnout",
+       main = "Figure 1. Scatter Plot of Closing Date vs. Voter Turnout")
+  abline(lm(vote ~ close), col = "red")
+})
+```
+
+```{r}
+###Bivariate analysis 2###
+
+###Percentage of High School Graduates (pcthsg) vs. Voter Turnout:
+
+# Calculate correlation
+correlation_pcthsg_turnout <- cor(data$pcthsg, data$vote)
+
+# Create a new plot
+plot.new()
+
+# Create scatterplot with regression line
+with(data, {
+  plot(pcthsg, vote, 
+       xlab = "Percentage of High School Graduates", 
+       ylab = "Voter Turnout",
+       main = "Figure 2. Scatter Plot of Percentage of High School Graduates vs. Voter Turnout")
+  abline(lm(vote ~ pcthsg), col = "blue")
+})
+```
+
+```{r}
+###Bivariate analysis 3###
+
+###Southern State (south) vs. Voter Turnout:
+
+# Create subset for southern and non-southern states
+southern_states <- subset(data, south == 1)
+non_southern_states <- subset(data, south == 0)
+
+# Perform t-test
+t_test_south_turnout <- t.test(southern_states$vote, non_southern_states$vote)
+
+# Print t-test results
+print(t_test_south_turnout)
+
+# Create a bar plot to visualize the difference in voter turnout between southern and non-southern states
+barplot(c(mean(southern_states$vote), mean(non_southern_states$vote)), 
+        names.arg = c("Southern States", "Non-Southern States"),
+        ylim = c(0, max(max(southern_states$vote), max(non_southern_states$vote))),
+        ylab = "Voter Turnout",
+        col = c("red", "blue"),
+        main = "Figure 3. Comparison of Voter Turnout between Southern and Non-Southern States")
+```
+
+```{r}
+###Multiple Regression Analysis###
+
+# Fit multiple regression model
+model <- lm(vote ~ close + pcthsg + south, data = data)
+
+# Print summary of the model
+summary(model)
+
+modelsummary(model, 
+             title = "Table 1. Regression Summary",
+             coef_rename = c(close = "Closing date for Registration", pcthsg = "Percentage of High School Graduate", south = "South"),
+             statistic = c("t = {statistic}", "SE = {std.error}", "conf.int"))
+
+stargazer(model)
+```
+
+```{r}
+###Robust Standard Errors###
+
+# Fit multiple regression model
+model2 <- lm(vote ~ close + pcthsg + south, data = data)
+
+# Compute robust standard errors
+robust_se <- sandwich::vcovHC(model2)
+
+# Print robust standard errors
+print(robust_se)
+
+model2 <- lm(vote ~ close + pcthsg + south, data = data)
+
+modelsummary(model2,
+             title = "Table 2. Robust Standard Errors",
+             vcov = "robust",
+             fmt = 2,
+             stars = TRUE,
+             coef_omit = 1,
+             estimate = "{estimate}",
+             statistic = c("t = {statistic}", "SE = {std.error}", "p = {p.value}","conf.int"),
+             coef_rename = c(close = "Closing date for Registration", pcthsg = "Percentage of High School Graduate", south = "South"),
+             conf_level = 0.95,
+             )
+
+stargazer(model2)
+```
+
+#### 
