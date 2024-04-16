@@ -1,6 +1,9 @@
 ---
 title: "Short Paper 1"
 author: "Zhenze Huang"
+format: 
+  html:
+    self-contained: true
 editor: visual
 execute:
       message: false
@@ -14,11 +17,25 @@ Based on the discussions of introduction and theory, this paper proposes three h
 
 H1: On average, the closer the date of the election, the lower the voter turnout.
 
+::: callout-note
+Rather, the further the state's closing date for voter registration is from its election day, the lower the expected voter turnout rate will be.
+:::
+
 H2: The more voters with a high school diploma in the state, the higher the voter turnout in the election.
+
+::: callout-note
+This phrasing suggests that the hypothesis relates to the absolute number of high school graduates. This is not the case. The hypothesis relates to the *proportion* of the state's population that graduated from high school.
+:::
 
 H3: The voters in states located in the Southern states are less likely to turnout for the election compared to voters in states located in non-Southern states.
 
-Specifically, I assume that there is a negative correlation between the average deadline for voter registration and voter turnout. Specifically, voter turnout is expected to decline as the registration deadline approaches Election Day. In contrast, a positive relationship is expected between the percentage of high school graduates in states and voter turnout. This suggests that higher educational attainment within a state correlates with increased voter participation. Furthermore, it is hypothesized that, on average, states located in the Southern region of the United States will exhibit lower voter turnout compared to their non-Southern counterparts, while controlling for other relevant factors. The mathematical equation shows as follow:
+Specifically, I assume that there is a negative correlation between the average deadline for voter registration and voter turnout. Specifically, voter turnout is expected to decline as the registration deadline approaches Election Day.
+
+::: callout-note
+Voter turnout is expected to *increase* as the registration deadline approaches election day.
+:::
+
+In contrast, a positive relationship is expected between the percentage of high school graduates in states and voter turnout. This suggests that higher educational attainment within a state correlates with increased voter participation. Furthermore, it is hypothesized that, on average, states located in the Southern region of the United States will exhibit lower voter turnout compared to their non-Southern counterparts, while controlling for other relevant factors. The mathematical equation shows as follow:
 
 $$Y = \beta_0+\beta_1(close)+\beta_2(pcthsg)+\beta_3(south)+e$$
 
@@ -38,7 +55,7 @@ library(zoo)
 
 ```{r}
 # Load the data with the full path including the file name
-data <- haven::read_dta("/Users/zhenzehuang/Desktop/Advanced Quantitative Methods For Political Science/Short Paper 1/aggcpsgvpt722.dta")
+data <- haven::read_dta("aggcpsgvpt722.dta")
 
 ```
 
@@ -46,15 +63,59 @@ data <- haven::read_dta("/Users/zhenzehuang/Desktop/Advanced Quantitative Method
 
 ### **1. Bivariate analysis:**
 
+::: callout-note
+From Mike:
+
+I don't see Figure 1. Is this what is in the code? The best approach for close and pcthsg would be scatterplots (of each independently against turnout).
+:::
+
 Figure 1 illustrates a scatter plot depicting the relationship between the closing date for voter registration and voter turnout. The data presented suggest a negative correlation, indicating that as the registration deadline approaches, voter turnout tends to decline. The scatter plot shown as Figure 2 indicates the positive relationship between the percentage of high school graduates and voter turnout: the more the high school graduates, the higher the voter turnout. Figure 3 suggests that on average, voter turnout in the southern states (mean = 61.07) tends to be relatively lower than in the non-southern states (mean = 68.18).
+
+::: callout-note
+It would also be good to see bivariate regressions for each of these relationships.
+:::
+
+::: callout-note
+From Mike:
+
+Also noting again confusion about the closing date variable and hs grad var.
+:::
 
 ### **2. Multiple Regression Analysis:**
 
-The results of the OLS model are shown in Table 1. Consistent with Hypothesis 1, which assumed a negative relationship between the registration deadline and voter turnout, our results indicate that, on average, each day closer to the registration deadline is associated with a 0.207 percentage point decrease in voter turnout, holding all other factors constant. This relationship is statistically significant (p $<$ 0.001). However, from a substantive perspective, the observed 0.207 percentage point decrease in turnout may not have a significant impact on the outcome of an election, particularly in the early stages or in the competitive multi-candidate races.
+The results of the OLS model are shown in Table 1. Consistent with Hypothesis 1, which assumed a negative relationship between the registration deadline and voter turnout, our results indicate that, on average, each day closer to the registration deadline is associated with a 0.207 percentage point decrease in voter turnout, holding all other factors constant.
+
+::: callout-note
+Error carried forward.
+
+The `close` variable provides us with the number of days prior to the state's election day voter registration closes. Some states allow you to register on the day of the election (`close = 0` ). Others require that you register at least 50 days prior to the election day (`close = 50`). Our expectation (supported by your analysis) is that, as the number of days prior to the election day you need to register to vote in that election increase, the voter turnout rate decreases.
+:::
+
+This relationship is statistically significant (p $<$ 0.001). However, from a substantive perspective, the observed 0.207 percentage point decrease in turnout may not have a significant impact on the outcome of an election, particularly in the early stages or in the competitive multi-candidate races.
+
+::: callout-note
+Holding all else constant, I would expect more people coming out to vote in competitive (multi-candidate) races to have a greater impact on the result than in uncompetitive races.
+:::
 
 In line with Hypothesis 2, which predicted that a higher percentage of high school graduates would increase voter turnout, our results confirm this theoretical expectation. Specifically, I find that a on average, one percentage point increase in the proportion of high school graduates is associated with a 0.079 percentage point increase in turnout, a relationship that is both statistically (p = 0.0252 $<$ 0.05) and substantively significant. This means that states with a higher proportion of high school graduates may experience higher voter turnout. The results suggest two key points: first, in closely contested elections, even a marginal increase in turnout of 0.079 percentage points could significantly affect the outcome of the election. Second, if turnout is indeed affected by the proportion of high school graduates, then efforts to improve education and increase high school graduation rates could play a key role in increasing voter participation.
 
+::: callout-note
+From Mike:
+
+Good, but it might be easier to think of in terms of targeting by campaigns.
+:::
+
 Regarding Hypothesis 3, which suggests that voter turnout would be lower in Southern states, our model results reveal both substantive and statistically significant differences. Specifically, after controlling for other factors, an average voter turnout in Southern states is 5.256 percentage points lower than in non-Southern states (p \< 0.001). This indicates that residing in the South is associated with a decreased likelihood of voting. Such regional disparities in voter turnout are of considerable significance for electoral participation.
+
+::: callout-note
+Why are they of considerable significance for electoral participation? In other words, what is the substantive significance of this finding?
+:::
+
+::: callout-note
+From Mike:
+
+Yes, this one seems easier to address than the others, which you handled well. In the revision please tackle this head on to explain why 5 points could matter.
+:::
 
 ### **2.3** Footnote Regarding the Robust Standard Errors Check:
 
@@ -62,7 +123,13 @@ This paper employs robust standard errors to address potential heteroscedasticit
 
 ## Conclusion
 
-In summary, this study examines the empirical relationships outlined in three hypotheses regarding voter turnout in U.S. elections. First, I confirm a negative correlation between the proximity of registration deadlines and turnout, consistent with Hypothesis 1. Although statistically significant, the observed decline in turnout may not have a substantial impact in certain electoral contexts. Second, in support of Hypothesis 2, a positive relationship was found between the proportion of high school graduates and voter turnout. This underscores the potential role of education in promoting civic engagement. In addition, our results supported Hypothesis 3, highlighting lower voter turnout in Southern states compared to non-Southern states, indicating regional disparities in voter participation. In addition, the study conducts a robust standard error test to assess the reliability and address heteroscedasticity in the model. The comparison revealed a slight increase in the standard errors in Table 2, leading to the recommendation to use the estimates from this table for regression analyses. Notably, "Closing date of registration" and Southern-state affiliation were statistically significant at the 0.05 level, while high school diploma percentage narrowly missed significance, interpreted with uniform statistical significance across variables.
+In summary, this study examines the empirical relationships outlined in three hypotheses regarding voter turnout in U.S. elections. First, I confirm a negative correlation between the proximity of registration deadlines and turnout, consistent with Hypothesis 1. Although statistically significant, the observed decline in turnout may not have a substantial impact in certain electoral contexts.
+
+::: callout-note
+Why not?
+:::
+
+Second, in support of Hypothesis 2, a positive relationship was found between the proportion of high school graduates and voter turnout. This underscores the potential role of education in promoting civic engagement. In addition, our results supported Hypothesis 3, highlighting lower voter turnout in Southern states compared to non-Southern states, indicating regional disparities in voter participation. In addition, the study conducts a robust standard error test to assess the reliability and address heteroscedasticity in the model. The comparison revealed a slight increase in the standard errors in Table 2, leading to the recommendation to use the estimates from this table for regression analyses. Notably, "Closing date of registration" and Southern-state affiliation were statistically significant at the 0.05 level, while high school diploma percentage narrowly missed significance, interpreted with uniform statistical significance across variables.
 
 ## Appendix
 
@@ -129,6 +196,16 @@ barplot(c(mean(southern_states$vote), mean(non_southern_states$vote)),
         main = "Figure 3. Comparison of Voter Turnout between Southern and Non-Southern States")
 ```
 
+::: callout-note
+Never include raw R output in your submitted work.
+:::
+
+::: callout-note
+From Mike:
+
+Just emphasizing this point.
+:::
+
 ```{r}
 ###Multiple Regression Analysis###
 
@@ -145,6 +222,12 @@ modelsummary(model,
 
 stargazer(model)
 ```
+
+::: callout-note
+From Mike:
+
+You need a substantive title that describes the model.
+:::
 
 ```{r}
 ###Robust Standard Errors###
@@ -174,5 +257,3 @@ modelsummary(model2,
 
 stargazer(model2)
 ```
-
-#### 
