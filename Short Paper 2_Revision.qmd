@@ -1,0 +1,130 @@
+---
+title: "Short Paper 2 - Response Memo to Journal Reviewers"
+author: "Zhenze Huang"
+format: 
+  html:
+    self-contained: true
+editor: visual
+execute:
+      message: false
+      warning: false
+      echo: false
+---
+
+## Response to Revision Comments
+
+Based on the revision comments provided by the editor, I have responded with statistical interpretations, tables, and figures for each comment as shown below.
+
+#### 1) Provide scatter plots with fitted regression lines of the relationship between high school graduation rates and turnout in the south and non-south, without controlling for any other variables. Does it appear from this descriptive analysis that the effect of high school graduation rates is different in the south and non-south?
+
+Figure 1 shown in Appendix presents two scatterplots showing the relationship between high school graduation rates and voter turnout in Southern and non-Southern states, without controlling for other variables. Two scatterplots show the positive relationship between the percentage of high school graduates and voter turnout in both Southern and non-Southern states, indicating that as the percentage of high school graduates increases, voter turnout tends to increase as well. Notably, the slope of the regression line for the Southern states (in red) appears to be less steep than the slope of the regression line for the Non-Southern states (in blue), indicating that the effect of high school graduation is greater in the South than in the Non-South. Specifically for the Southern states, this suggests that the negative effect associated with the Southern states diminishes as high school graduation rates increase, which is consistent with the editors' expectation. Despite the descriptive analysis, the further statistical testing is needed to confirm this assumption.
+
+#### 2)Run a model that extends the model used in the original submission so that it now includes an interaction between the high school graduation rate and south variables. Report the results in a table. Does the evidence support my hypothesis? Be sure to discuss both substantive and statistical significance and include a graph of the effect of the south on turnout across high school graduation rates with confidence intervals around the effect.
+
+According to the editor's second comment, it is needed to evaluate the expectation that the effects of high school graduation rates and whether a state is southern or not are conditional on one another.
+
+The mathematical equation regarding the interaction terms between the high school graduation and south variables shows as follow:
+
+![](images/截屏2024-05-13%20上午11.28.30.png)
+
+Where $β0$ is the intercept term, $β1$, $β2$, $β3$, and $β4$​ are the coefficient associated with each respective variables, and $ϵ$ represents the error term. Specifically, The coefficient $β4$​ represents the effect of the interaction between the high school graduation rate and the southern state variable on the voter turnout, indicating how the relationship between voter turnout and high school graduation rates differs between southern and non-southern states.
+
+Table 1 and Figure 2 shown in Appendix present the new model with an interaction between the high school graduation rate and south variables. The new model with interaction term is better fit compared with the original one. The coefficient of interaction term (0.234) shows that on average, for each additional percentage point increase in high school graduation rates, the negative effect southern states on voter turnout will be reduced by 0.234 percentage point. This effect is large and suggests that even small improvements in education can meaningfully counteract some regional disadvantages in voter engagement.
+
+Therefore, it is clear that the inclusion of the interaction term in the new model provide evidence that supports the hypothesis regarding the conditional effect of regions and high school graduation rates on voter turnout. Both results in Table 1 and Figure 2 demonstrates the editor's expectation, i.e., as high school graduation rates increase, the typically negative effect of being a southern state on voter turnout diminishes.
+
+#### **3) Substantive meaning of the coefficient on the interaction term**
+
+As indicated by Table 1, the coefficient on the interaction term between high school graduation rates and whether a state is southern is 0.234. This indicates that, on average, for each additional percentage point increase in high school graduation rates, the negative effect on voter turnout in southern states decreases by 0.234 percentage points. This result is substantive significant as the modest magnitude of 0.234 in the interaction term's effect is substantively significant, as it suggests a potential shift in voter engagement that could impact electoral dynamics and outcomes in southern states, especially in closely contested elections.
+
+#### **4) Overall, based on the new model, is the effect of high school graduation rates on turnout statistically significant? Please report the relevant test statistics.**
+
+I use the F-test to formally test whether the coefficient are significantly different from zero. As the result of F-test shows, it is very unlikely to see such a large F-statistics of 7.0388 if it were zero. Therefore, I can state that the effect of high school graduation rates on turnout is statistically significant. Additionally, the the corresponding p-value is 0.001006, also demonstrate its statistical significance.
+
+#### **5) Is the effect of high school graduation rates on turnout substantively significant in the south? What about the non-south?** 
+
+The impact of high school graduation rates on voter turnout in the South is derived by evaluating the calculated effect for Southern states: 0.015 +0.234 \* 1 = 0.249. This indicates that, on average, for each additional percentage point increase in high school graduation rates, voter turnout in Southern states increases by 0.249 percentage points.
+
+In contrast, for the Non-South, the effect of high school graduation rates on voter turnout is 0.015 +0.234 \* 0 = 0.015. This suggests that for each additional percentage point increase in high school graduation rates, the increase in voter turnout in non-Southern states is just 0.015 percentage points.
+
+This comparison suggests that the effect of high school graduation rates on voter turnout is substantively significant in the South, where the effect is substantially larger than in non-Southern states.
+
+#### **6) Overall, based on the new model, is the effect of south on turnout statistically significant? Please report the relevant test statistics.** 
+
+I use the F-test to formally test whether the coefficient are significantly different from zero. As the result of F-test shows, it is very unlikely to see such a large F-statistics of 28.034 if it were zero. Therefore, I can state that the effect of south on turnout is statistically significant. Additionally, the the corresponding p-value is 5.042e-12, also demonstrate its statistical significance.
+
+#### **7) Please explain in a few sentences why you will or will not include the new model in the paper.**
+
+I will include the new model in the paper because it best reflects the true relationship between high school graduation rates and voter turnout in the different regions. Incorporating the interaction term between "Percentage of High School Graduates" and "South" not only improves the model’s explanatory power, as evidenced by the increased R-squared value, but also provides deeper insights into how these factors interact differently across regions. The interaction term significantly improves the model’s fit and provides a nuanced understanding of how education levels interact with regional characteristics to influence voter turnout, thereby enhancing the paper's contribution to the literature on voter behavior.
+
+## Appendix
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(modelsummary)
+library(xtable)
+library(sandwich)
+library(stargazer)
+library(kableExtra)
+library(lmtest)
+library(zoo)
+library(car)
+```
+
+```{r}
+# Load the data with the full path including the file name
+data <- haven::read_dta("/Users/zhenzehuang/Desktop/Advanced Quantitative Methods For Political Science/GVPT722/aggcpsgvpt722.dta")
+```
+
+```{r}
+# Fit model with interaction term
+model_interaction <- lm(vote ~ close + pcthsg + south + pcthsg:south, data = data)
+
+# Get predicted values
+data$predicted <- predict(model_interaction)
+
+# Create scatter plots and add regression lines
+ggplot(data, aes(x = pcthsg, y = vote, color = factor(south))) +
+  geom_point() +  # Add points
+  geom_smooth(method = "lm", se = FALSE) +  # Add linear regression lines without confidence intervals
+  labs(x = "Percentage of High School Graduates", 
+       y = "Voter Turnout (%)",
+       title = "Figure 1. Percentage of High School Graduates' Effect on Voter Turnout",
+       color = "Region") +  # Labels for axes, title, and legend
+  scale_color_manual(values = c("blue", "red"), 
+                     labels = c("Non-Southern", "Southern")) +  # Customize the colors and labels for the legend
+  theme_minimal()  # Use a minimal theme
+```
+
+Table 1. Effect of Percentage of High School Graduates on Voter Turnout
+
+```{r}
+# Fit model with interaction term
+ model<- lm(vote ~ close + pcthsg + south + pcthsg:south, data = data)
+
+# Summarize model
+modelsummary(model_interaction, 
+             title = "Table 1. Effect of Percentage of High School Graduates on Voter Turnout",
+             coef_rename = c(close = "Number of Days Before Registration", 
+                             pcthsg = "Percentage of High School Graduate", 
+                             south = "South", 
+                             `pcthsg:south` = "High School graduates (%) X South"),
+             statistic = c("t = {statistic}", "SE = {std.error}", "conf.int"))
+
+```
+
+```{r}
+# Plot prediction with consistent style
+
+ggplot(data, aes(x = pcthsg, y = vote, color = factor(south))) +
+  geom_point() +  # Add points
+  geom_smooth(method = "lm", se = TRUE) +  # Add linear regression lines with confidence intervals
+  theme_minimal() +  # Use a minimal theme
+  labs(color = "Region",
+       x = "Percentage of High School Graduates",
+       y = "Voter Turnout(%)",
+       title = "Figure 2. Effect of Southern State on Turnout by High School Graduates") +  # Customize labels and title
+  scale_color_manual(values = c("blue", "red"), 
+                     labels = c("Non-Southern", "Southern"))
+```

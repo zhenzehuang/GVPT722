@@ -1,0 +1,264 @@
+---
+title: "GVPT722 Final Exam"
+author: "Zhenze Huang"
+format: 
+  html:
+    self-contained: true
+editor: visual
+execute: 
+  message: false
+  warning: false
+---
+
+Please read all of the questions and tables carefully. Be as brief as possible; extra calculations and incorrect information, even in the presence of correct information, will result in point deductions. If you need to make any assumptions, be sure to make them explicit. Show all formulas and all work.
+
+## Question 1
+
+Imagine you hypothesize that the probability of supporting a law to lower the voting age to 16 is lower for people age 65 and older than it is for people 31-64 years old. Using the table of survey results below answer questions 1a, 1b, and 1c. Please show all of your work.
+
+| Age          | Oppose | Support | TOTAL |
+|--------------|--------|---------|-------|
+| 18-29        | 75     | 125     | 200   |
+| 30-64        | 250    | 250     | 500   |
+| 65 and older | 200    | 100     | 300   |
+| TOTAL        | 525    | 475     | 1000  |
+
+: Probability of Supporting a Law to Lower the Voting Age to 16 by Age (cell counts)
+
+### Part A
+
+What is the probability of supporting the law? (1 point)
+
+P (supporting the law) = 475/1000=47.5%
+
+### Part B
+
+What is the probability of being 18-29 **or** supporting the law? Write the general (i.e. using symbols) formula you used to obtain your answer and show all of your work. (2 points)
+
+$P(A ∪ B)$ = $P(A)$ + $P(B)$ - $P(A ∩ B)$
+
+= P (18-29) + P (supporting the law) - p (18-29 and supporting the law)
+
+= (200/1000) + (475/1000) - (125/1000)
+
+= 55%
+
+### Part C
+
+In terms of the substantive results (ignore statistical significance), does the evidence support your hypothesis? Explain, using details, how you know (no more than 2 sentences). (5 points)
+
+P (supporters aged 30-64) = 250/500 = 50%
+
+P (supporters aged 65 and older) = 100/300 = 33%
+
+P (supporters aged 30-64) \> P (supporters aged 65 and older)
+
+Therefore, the evidence does support the hypothesis as the probability of supporters aged 30 - 64 is higher than the probability of supporters aged 65 and older.
+
+## Question 2
+
+Provide a political science example of an ordered categorical variable. (1 point)
+
+A Legislator's attitude towards a draft bill (strongly supportive, weakly supportive, neutral, opposed).
+
+## Question 3
+
+A recent study by Dr. Doofenshmirtz found that those who were randomly selected to be exposed to arguments that 16- and 17-year-olds are informed and engaged in local politics increased support for lowering the voting age to 16 by 10 percentage points, from a baseline of support of 45 percentage points in the control condition. On a quantitative methods exam Zuri, Jesse, and Teddy were asked if the effect was substantively significant. The question they were asked did not give any information about statistical significance. The answers they provided follow.
+
+Jesse: The effect is substantively significant because 10 is a large number.
+
+Teddy: We just don’t know because there isn’t any information about statistical significance.
+
+Zuri: The effect is substantively significant because this information increases support over 50%, so a campaign stressing these points could help the policy pass by getting more than 50% support.
+
+### Part A
+
+True or False. Jesse would be marked **incorrect**. Just state True or False. (1 point)
+
+True.
+
+### Part B
+
+True or False. Teddy would be marked as **correct**. Just state True or False. (1 point)
+
+False.
+
+### Part C
+
+True or False. Zuri would be marked as **correct**. Just state True or False. (1 point)
+
+True.
+
+## Question 4
+
+Use the information below and in Table 2 to answer questions 4a, 4b, 4c, and 4d.
+
+**Dependent variable:**
+
+-   United Nations Feeling Thermometer ranging from 0 (coldest) to 100 (warmest)
+
+**Independent variables:**
+
+-   Female, coded 1 for female and 0 for male;
+
+-   Age, coded in years from 16-90.
+
+The following results were obtained from a survey of 2,500 individuals age 16 to 90 in Africa, Asia, Europe, North America, Oceania, South America, and Africa.
+
+| Independent variables | Coefficient | p-value |
+|-----------------------|-------------|---------|
+| Constant              | 51          | 0.000   |
+| Female                | 2           | 0.000   |
+| Age                   | 0.4         | 0.000   |
+
+: Regression Results for Q4
+
+### Part A
+
+Using the information above, determine whether the following statement is **True or False, and fully explain why** in no more than 1 sentence: The interpretation of the coefficient on the constant term is useful on its own. (4 points)
+
+False. It is not useful to interpret the coefficient on the constant term on its own, because it is possible that the gender equals 0, but it is not possible that age equals 0 (as it coded from 16 to 90).
+
+### Part B
+
+Using the information above, what is the substantive meaning of the coefficient on the Female variable? Answer in no more than 1 sentence and be sure to tailor the answer to the variables used in this example. (2 points)
+
+**Substantive meaning:** on average, the respondents whose gender are female will increase 2 points in their UN Feeling Thermometer ranging than those who are not female, holding other variables constant.
+
+### Part C
+
+True or False. Using the information above, because the coefficient on Female is larger than the coefficient on Age, the effect of being female on the United Nations Feeling thermometer is larger than the effect of age. Just state True or False. (1 point)
+
+False.
+
+### Part D
+
+Using the information above, might the positive coefficient on Age be the result of older people being more knowledgeable about the United Nations? In no more than 1 sentence, explain your answer. (3 points)
+
+Yes, it is possible that the positive coefficient on "Age" be the result of older people being more knowledgeable about the UN, because the variable of knowledge is not included in the model.
+
+## Question 5
+
+### Part A
+
+In an OLS model that includes X~2~, X~3~, and an interaction between X~2~ and X~3~, in one sentence explain how you would test the **overall** statistical significance of the relationship between X~2~ and the dependent variable. That is, what test would be used and what is the null hypothesis? (2 points)
+
+I will use F-test with the null hypothesis that the coefficient of the interaction term of X2\*X3 are both zero (H0= βX2 = βX2\* βX3=0).
+
+### Part B
+
+Write out the equation for the effect of X~2~ on Y from the following OLS model:
+
+**Y = β~1~ + β~2~X~2~ + β~3~X~3~ + β~23~X~2\*~X~3~ + β~4~X~4~ + u.** (3 points)
+
+The effect of X2 on Y= **β~2~** + **β~23~X~3~**.
+
+### Part C
+
+Using the equation in 5b, if **X~2~** is a dummy variable coded as 0 or 1 and **X**~3~ is a categorical variable coded as 1, 2, or 3, is it useful to interpret **β~2~** on its own? **If it is not useful** to do so explain why it is not.  **If it is useful** to do so explain what it reveals.  Answer in [no more than 2 sentences]{.underline}. (3 points)
+
+It is not useful to interpret on **β~2~** its own, because the effect of **X~2~** on Y is based on the condition that the value of X3, which indicated by the interaction term **β**23X2X3. The coefficient **β**2 represents the effect of X2 only when X3 is zero, which is not within the range of X3's coded values (1,2,3). Thus, **β~2~** must be interpreted in the conjunction with **β~23~X~3.~**
+
+## Question 6
+
+True or False. When using panel data, one of the key issues to address is the lack of independence across the observations. Just state True or False. (1 point)
+
+True.
+
+## Question 7
+
+Answer the questions below based on the following information and the following table. (8 points total)
+
+**Data**: 2020, individual level U.S. survey data
+
+**Method**: Probit
+
+**Dependent Variable**:
+
+-   Voted or not, coded as `1` for voted and `0` for did not vote
+
+**Independent Variables**:
+
+-   Age (coded 18-92);
+
+-   Education (coded in 5 categories (1 = No high school degree, 5 = Graduate Degree));
+
+-   South (state is in the south and was part of the confederacy or not, 1=state is in the south, 0=state is not in the south).
+
+| Independent variables | Coefficient   | Std. error | z-value | p-value |
+|-----------------------|---------------|------------|---------|---------|
+| Constant              | -3.79         | 0.04       | -94.75  | 0.000   |
+| Age                   | 0.04          | 0.00       | 100.00  | 0.000   |
+| Education             | 0.48          | 0.23       | 2.05    | 0.04    |
+| South                 | -0.40         | 0.16       | 1.88    | 0.030   |
+|                       |               |            |         |         |
+| N                     | = 98,857      |            |         |         |
+| Log likelihood        | = -56,089.376 |            |         |         |
+| Chi sq                | = 13,196      |            |         |         |
+| p-value               | = 0.000       |            |         |         |
+
+: Probability of Voting Results for Q7
+
+### Part A
+
+Interpret the coefficient on the South variable (3 points)
+
+The coefficient on the South is -0.40, which indicates that, on average, voters living in the Southern states are 0.40 points less likely to vote compared with voters who do not live in the Southern states, holding other variables constant. This is statistically significant as the p-value is 0.03 (\<0.05).
+
+### Part B
+
+In terms of the probability of voting, how you would determine the effect of living in a state that is in the south (which would allow you to then assess substantive significance)? That is, what is the effect of changing the South variable from 0 to 1?  Set up all relevant equations **COMPLETELY** (but do not solve them), briefly explain what each does (no more than 1 sentence each), and explain how the effect of South is obtained (no more than 1 sentence). Note that this is **not** asking you to address substantive significance, just to set up the process. (5 points)
+
+Model is: P (Vote =1 \| X) = b0 + b1 \* Age + b2 \* Edu + b3 \* South + e
+
+1\) Pick what values we will set our primary IV to. Here, we have 0 to 1.
+
+2\) For Probit, recall P (Vote =1 \| X) =
+
+-   PHI (XB) ...recall this is the S shaped curve
+
+-   XB = b1 \* Age + b2 \* Edu + b3 \* South
+
+3\) Get the predicted probability when South = 0.
+
+-   Pick observed value or average case approach. We will pick the observation value.
+
+4\) Write out the equation.
+
+-   P (Vote =1 \| South = 1, Age, Edu) =
+
+-   PHI = (b0 + b1 \* Age + b2 \* Edu + b3\* South)
+
+5\) Get the predicted probability when South = 0
+
+-   P (Vote =1 \| South = 0, Age, Edu) =
+
+    -   PHI (b0 + b1 \* Age + b2 \* Edu + b3 \* South (0))
+
+6\) Get the effect by subtracting.
+
+-   P (Vote =1 \| South = 1, Age, Edu) - P (Vote =1 \| South = 0, Age, Edu)
+
+-   Taking the average.
+
+**Explanation:** the first step is to set the primary IV (South) to its two possible values (0 and 1) in order to compare the predicted probabilities. The second is to write out the equation for the predicted probabilities when South equals 0 and equals 1, respectively. The final step is to subtract the predicted probability for South equals 0 from the predicted probability for South equals 1 to determine the effect of South.
+
+## Bonus question
+
+### Part A
+
+True or False. If you run an OLS model and a test shows that the variance of the errors increases as one of the independent variables increases, i.e., there is heteroscedasticity, then the coefficients are unbiased but the standard errors are biased. Just state True or False. (1 point)
+
+True.
+
+### Part B
+
+What is the OLS estimate of Y = α + ε? (That is, what does the OLS estimate of α equal?) (1 point)
+
+The OLS estimate of α is: $\hat{\alpha} = \bar{Y}$ where the $\bar{Y}$ is the average mean of Y.
+
+### Part C
+
+Define consistency as it relates to a property of estimators. (2 points)
+
+The concept of consistency refers that as it relates to a property of estimators, indicating that as the sample size increases indefinitely, the estimator converges in probability to the true value of the parameter being estimated. In other words, an estimator is consistent if it produces values that get arbitrarily close to the actual parameter value as the sample size grows larger.
