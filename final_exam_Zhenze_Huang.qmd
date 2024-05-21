@@ -29,11 +29,19 @@ Imagine you hypothesize that the probability of supporting a law to lower the vo
 
 What is the probability of supporting the law? (1 point)
 
+::: callout-note
+1/1
+:::
+
 P (supporting the law) = 475/1000=47.5%
 
 ### Part B
 
 What is the probability of being 18-29 **or** supporting the law? Write the general (i.e. using symbols) formula you used to obtain your answer and show all of your work. (2 points)
+
+::: callout-note
+2/2
+:::
 
 $P(A ∪ B)$ = $P(A)$ + $P(B)$ - $P(A ∩ B)$
 
@@ -47,6 +55,10 @@ $P(A ∪ B)$ = $P(A)$ + $P(B)$ - $P(A ∩ B)$
 
 In terms of the substantive results (ignore statistical significance), does the evidence support your hypothesis? Explain, using details, how you know (no more than 2 sentences). (5 points)
 
+::: callout-note
+5/5
+:::
+
 P (supporters aged 30-64) = 250/500 = 50%
 
 P (supporters aged 65 and older) = 100/300 = 33%
@@ -58,6 +70,10 @@ Therefore, the evidence does support the hypothesis as the probability of suppor
 ## Question 2
 
 Provide a political science example of an ordered categorical variable. (1 point)
+
+::: callout-note
+1/1
+:::
 
 A Legislator's attitude towards a draft bill (strongly supportive, weakly supportive, neutral, opposed).
 
@@ -75,17 +91,29 @@ Zuri: The effect is substantively significant because this information increases
 
 True or False. Jesse would be marked **incorrect**. Just state True or False. (1 point)
 
+::: callout-note
+1/1
+:::
+
 True.
 
 ### Part B
 
 True or False. Teddy would be marked as **correct**. Just state True or False. (1 point)
 
+::: callout-note
+1/1
+:::
+
 False.
 
 ### Part C
 
 True or False. Zuri would be marked as **correct**. Just state True or False. (1 point)
+
+::: callout-note
+1/1
+:::
 
 True.
 
@@ -117,23 +145,43 @@ The following results were obtained from a survey of 2,500 individuals age 16 to
 
 Using the information above, determine whether the following statement is **True or False, and fully explain why** in no more than 1 sentence: The interpretation of the coefficient on the constant term is useful on its own. (4 points)
 
+::: callout-note
+4/4
+:::
+
 False. It is not useful to interpret the coefficient on the constant term on its own, because it is possible that the gender equals 0, but it is not possible that age equals 0 (as it coded from 16 to 90).
 
 ### Part B
 
 Using the information above, what is the substantive meaning of the coefficient on the Female variable? Answer in no more than 1 sentence and be sure to tailor the answer to the variables used in this example. (2 points)
 
+::: callout-note
+2/2
+:::
+
 **Substantive meaning:** on average, the respondents whose gender are female will increase 2 points in their UN Feeling Thermometer ranging than those who are not female, holding other variables constant.
+
+::: callout-note
+A better phrasing would be "on average, **the estimated ratings held by** respondents whose gender are female will be 2 points **higher** than those who are not female, holding other variables constant."
+:::
 
 ### Part C
 
 True or False. Using the information above, because the coefficient on Female is larger than the coefficient on Age, the effect of being female on the United Nations Feeling thermometer is larger than the effect of age. Just state True or False. (1 point)
+
+::: callout-note
+1/1
+:::
 
 False.
 
 ### Part D
 
 Using the information above, might the positive coefficient on Age be the result of older people being more knowledgeable about the United Nations? In no more than 1 sentence, explain your answer. (3 points)
+
+::: callout-note
+3/3
+:::
 
 Yes, it is possible that the positive coefficient on "Age" be the result of older people being more knowledgeable about the UN, because the variable of knowledge is not included in the model.
 
@@ -143,7 +191,15 @@ Yes, it is possible that the positive coefficient on "Age" be the result of olde
 
 In an OLS model that includes X~2~, X~3~, and an interaction between X~2~ and X~3~, in one sentence explain how you would test the **overall** statistical significance of the relationship between X~2~ and the dependent variable. That is, what test would be used and what is the null hypothesis? (2 points)
 
+::: callout-note
+1.5/2
+:::
+
 I will use F-test with the null hypothesis that the coefficient of the interaction term of X2\*X3 are both zero (H0= βX2 = βX2\* βX3=0).
+
+::: callout-note
+This is a **joint** F-test.
+:::
 
 ### Part B
 
@@ -151,17 +207,33 @@ Write out the equation for the effect of X~2~ on Y from the following OLS model:
 
 **Y = β~1~ + β~2~X~2~ + β~3~X~3~ + β~23~X~2\*~X~3~ + β~4~X~4~ + u.** (3 points)
 
+::: callout-note
+3/3
+:::
+
 The effect of X2 on Y= **β~2~** + **β~23~X~3~**.
 
 ### Part C
 
 Using the equation in 5b, if **X~2~** is a dummy variable coded as 0 or 1 and **X**~3~ is a categorical variable coded as 1, 2, or 3, is it useful to interpret **β~2~** on its own? **If it is not useful** to do so explain why it is not.  **If it is useful** to do so explain what it reveals.  Answer in [no more than 2 sentences]{.underline}. (3 points)
 
+::: callout-note
+2.5/3
+:::
+
 It is not useful to interpret on **β~2~** its own, because the effect of **X~2~** on Y is based on the condition that the value of X3, which indicated by the interaction term **β**23X2X3. The coefficient **β**2 represents the effect of X2 only when X3 is zero, which is not within the range of X3's coded values (1,2,3). Thus, **β~2~** must be interpreted in the conjunction with **β~23~X~3.~**
+
+::: callout-note
+Please follow the instructions carefully. Answer in [no more than 2 sentences]{.underline}.
+:::
 
 ## Question 6
 
 True or False. When using panel data, one of the key issues to address is the lack of independence across the observations. Just state True or False. (1 point)
+
+::: callout-note
+1/1
+:::
 
 True.
 
@@ -203,13 +275,31 @@ Answer the questions below based on the following information and the following 
 
 Interpret the coefficient on the South variable (3 points)
 
+::: callout-note
+1/3
+:::
+
 The coefficient on the South is -0.40, which indicates that, on average, voters living in the Southern states are 0.40 points less likely to vote compared with voters who do not live in the Southern states, holding other variables constant. This is statistically significant as the p-value is 0.03 (\<0.05).
+
+::: callout-note
+You cannot interpret coefficients from probit models directly.
+:::
 
 ### Part B
 
 In terms of the probability of voting, how you would determine the effect of living in a state that is in the south (which would allow you to then assess substantive significance)? That is, what is the effect of changing the South variable from 0 to 1?  Set up all relevant equations **COMPLETELY** (but do not solve them), briefly explain what each does (no more than 1 sentence each), and explain how the effect of South is obtained (no more than 1 sentence). Note that this is **not** asking you to address substantive significance, just to set up the process. (5 points)
 
+::: callout-note
+3/5
+:::
+
 Model is: P (Vote =1 \| X) = b0 + b1 \* Age + b2 \* Edu + b3 \* South + e
+
+::: callout-note
+$$
+P (Vote =1 | X) = \Phi(b0 + b1 * Age + b2 * Edu + b3 * South + e)
+$$
+:::
 
 1\) Pick what values we will set our primary IV to. Here, we have 0 to 1.
 
@@ -229,11 +319,21 @@ Model is: P (Vote =1 \| X) = b0 + b1 \* Age + b2 \* Edu + b3 \* South + e
 
 -   PHI = (b0 + b1 \* Age + b2 \* Edu + b3\* South)
 
+::: callout-note
+$$
+P(Vote = 1 | South = 1, Age, Edu) = \Phi(\beta_0 + \beta_1 Age + \beta_2 Edu + \beta_3*1)
+$$
+:::
+
 5\) Get the predicted probability when South = 0
 
 -   P (Vote =1 \| South = 0, Age, Edu) =
 
     -   PHI (b0 + b1 \* Age + b2 \* Edu + b3 \* South (0))
+
+::: callout-note
+See above.
+:::
 
 6\) Get the effect by subtracting.
 
@@ -249,16 +349,32 @@ Model is: P (Vote =1 \| X) = b0 + b1 \* Age + b2 \* Edu + b3 \* South + e
 
 True or False. If you run an OLS model and a test shows that the variance of the errors increases as one of the independent variables increases, i.e., there is heteroscedasticity, then the coefficients are unbiased but the standard errors are biased. Just state True or False. (1 point)
 
+::: callout-note
+1/1
+:::
+
 True.
 
 ### Part B
 
 What is the OLS estimate of Y = α + ε? (That is, what does the OLS estimate of α equal?) (1 point)
 
+::: callout-note
+1/1
+:::
+
 The OLS estimate of α is: $\hat{\alpha} = \bar{Y}$ where the $\bar{Y}$ is the average mean of Y.
+
+::: callout-note
+Average and mean are the same. You only need one of these words.
+:::
 
 ### Part C
 
 Define consistency as it relates to a property of estimators. (2 points)
+
+::: callout-note
+2/2
+:::
 
 The concept of consistency refers that as it relates to a property of estimators, indicating that as the sample size increases indefinitely, the estimator converges in probability to the true value of the parameter being estimated. In other words, an estimator is consistent if it produces values that get arbitrarily close to the actual parameter value as the sample size grows larger.
